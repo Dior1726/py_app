@@ -125,3 +125,8 @@ STATIC_URL = '/static/'
 STATEFILES_DIRS = [
     BASE_DIR / "static"
 ]
+
+import dj_database_url
+
+db_from_env = dj_database_url.url.config()
+DATABASES['default'].update(db_from_env)
