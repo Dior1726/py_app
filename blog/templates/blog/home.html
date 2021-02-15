@@ -1,0 +1,68 @@
+{% extends 'blog/layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h3 class="text-center">Последние работы</h3>
+        <div class="row">
+            {% for item in last_items %}
+                <div class="col-12 col-sm-6">
+                    <div class="box-content">
+                        <div class="box-content__icon">
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="box-content__body">
+                            <h4> {{ item.name }} </h4>
+                            <p> {{ item.category }} / {{ item.subCategory }} </p>
+                            <a href="{{ item.category_id }}/{{ item.subCategory_id }}" class="btn btn-success">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+
+            <h3 class="text-center" id="referat">Категории рефератов</h3>
+            <div class="row height-50">
+                <ul class="links">
+                    {% for item in ref_subcategories %}
+                        <li><a href="1/{{ item.pk }}"> {{ item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <h3 class="text-center" id="diplome">Категории дипломной работы</h3>
+            <div class="row height-50">
+                <ul class="links">
+                    {% for item in dip_subcategories %}
+                        <li><a href="2/{{ item.pk }}"> {{ item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <h3 class="text-center" id="kursoviye">Категории курсовых работ</h3>
+            <div class="row height-50">
+                <ul class="links">
+                    {% for item in kur_subcategories %}
+                        <li><a href="3/{{ item.pk }}"> {{ item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    <div class="container-fluid faq">
+        <div class="container" id="shop">
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <h2>Как купить?</h2>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <ul>
+                        <li>Выберите материал</li>
+                        <li>Напишите нам в whatsapp: <strong>8 707 777 77 77</strong></li>
+                        <li>Оплата через Kaspi: <strong>8 707 777 77 77</strong></li>
+                        <li>Оплата через единиц: <strong>8 707 777 77 77</strong></li>
+                        <li>Если есть вопросы пишите нам!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

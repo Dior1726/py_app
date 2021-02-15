@@ -1,0 +1,35 @@
+{% extends 'blog/layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h3 class="text-center">Результаты поиска</h3>
+    <div class="mx-auto py-4">
+        {% if not search_items %}
+            <p>Ничего не найдено! Вернутся на <a href="{% url 'home' %}">главную.</a></p>
+        {% else %}
+            <table class="table table-hover">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Название</th>
+                  <th scope="col">Вид</th>
+                  <th scope="col">Предмет</th>
+                  <th scope="col">Цена</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in search_items %}
+                    <tr>
+                      <th scope="row"> {{ forloop.counter }} </th>
+                      <td> {{ item.name }} </td>
+                      <td>{{ item.category }}</td>
+                      <td>{{ item.subCategory }}</td>
+                      <td>{{ item.sum }} тг</td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

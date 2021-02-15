@@ -1,0 +1,46 @@
+{% extends 'blog/layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h3 class="text-center">Все работы</h3>
+    {% if news %}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        {% for item in category %}
+            <li class="breadcrumb-item" aria-current="page">{{item.name}}</li>
+        {% endfor %}
+        {% for item in sub_category %}
+            <li class="breadcrumb-item" aria-current="page">{{item.name}}</li>
+        {% endfor %}
+      </ol>
+    </nav>
+
+   <div class="table-area">
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Название</th>
+              <th scope="col">Описание</th>
+              <th scope="col">Цена</th>
+              <th scope="col">Язык</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in news %}
+                <tr>
+                  <th scope="row"> {{ forloop.counter }} </th>
+                  <td> {{ item.name }} </td>
+                  <td>{{ item.anons }}</td>
+                  <td>{{ item.sum }} тг</td>
+                  <td>{{ item.language }}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+   </div>
+    {% else %}
+        <p>Здесь пока нету работ! Вернутся на <a href="/">главную</a>.</p>
+    {% endif %}
+</div>
+{% endblock %}
