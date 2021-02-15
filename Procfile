@@ -1,1 +1,1 @@
-web: gunicorn referatik.wsgi --log-file -
+web: gunicorn referetik.wsgi --log-file -
