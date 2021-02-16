@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <h3 class="text-center">Результаты поиска</h3>
-    <div class="mx-auto py-4">
+    <div class="table-area">
         {% if not search_items %}
             <p>Ничего не найдено! Вернутся на <a href="{% url 'home' %}">главную.</a></p>
         {% else %}
